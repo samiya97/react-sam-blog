@@ -1,8 +1,15 @@
+///lesson 10 - 16
+
 import { useState, useEffect} from 'react'; // hook useState
 import BlogList from './BlogList';
 
 const Home = () => {
-    const [blogs, setblogs] = useState(null); 
+    const [blogs, setblogs] = useState([ //state will change and that will trigger rerender
+        { title: 'react website', body: 'lorem ipsum......', author:'Samiya', id:1},
+        { title: 'First Blog', body: 'lorem ipsum......', author:'Batool', id:2},
+        { title: 'Web dev tool', body: 'lorem ipsum......', author:'mario', id:3},
+        { title: 'react dev tool', body: 'lorem ipsum......', author:'mario', id:4},
+    ]); 
 
     const [name , setName] = useState('mario');
 
@@ -12,16 +19,10 @@ const Home = () => {
     }
 
     //rerender trigger this function
-    useEffect(() => { // we can't make it aysnc only if you want to externalize it then only
-       fetch('http://localhost:8000/blogs')
-       .then(res => { //after it is fetch 
-           return res.json(); //aysnc it will take time to do
-       }) // data what res.json
-       .then(data => { //aray of obj
-           // console.log(data);
-            setblogs(data);
-       });
-    },[]); // with an array it will only run once and will run only when the name in array is change by clickHandler
+    useEffect(() => { //this function is run with every render (on refresh or change)
+        console.log('use effect ran');
+        console.log(name);
+    },[name]); // with an array it will only run once and will run only when the name is change by clickHandler
 
     return ( //only props will passed to the particular component in which they are mentioned
         //flitering blog reusing components
