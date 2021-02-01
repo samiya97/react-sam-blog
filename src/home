@@ -1,0 +1,33 @@
+import {useState} from 'react';
+
+const Home = () => {
+   // let name = 'samiya'; // onclick it will not update bcz it is not reactive
+    // const [value, function for change the value]
+    const [name, setName] = useState('samiya'); // this is reactive (can be array obj bool number) 
+    const [age , setAge] = useState(22);
+    const handleClick = () =>{
+        // name = 'batool';
+        // console.log('hello,ninjas');
+        setName('batool');
+        setAge(23);
+    }
+    //practise arrow functions, anonymous, 
+    // const handleClick = (e) =>{
+    //     console.log('hello,ninjas', e);
+    // }
+    // const handleClickAgain = (name , e) => {
+    //     console.log('hello '+ name, e.target);
+    // }
+    return ( 
+        <div className="home">
+            <h1>homepage </h1>
+            <p>{name} is {age} years old</p>
+            <button onClick={handleClick}>Click me</button>
+            {/* <button onClick={(e)=>
+                handleClickAgain('samiya' , e)
+            }>click me again</button> */}
+        </div>
+      );
+}
+ 
+export default Home;
