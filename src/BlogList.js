@@ -1,4 +1,4 @@
-const BlogList = ({ blogProp, title, handledelete}) => {  // getting props from home.js
+const BlogList = ({ blogProp, title}) => {  // getting props from home.js
    // const blogs = props.blogProp; // storing the prop in const so that we can use that props.nameattribute in home.js
    // const title = props.title;
     //console.log(props, blogs);
@@ -10,7 +10,7 @@ const BlogList = ({ blogProp, title, handledelete}) => {  // getting props from 
              <div className="blog-preview" key={blog.id}>
                  <h2>{ blog.title}</h2>
                  <p>Written By { blog.author}</p>
-                 <button onClick={() => handledelete(blog.id)}>delete Blog</button>
+                 {/* <button onClick={() => handledelete(blog.id)}>delete Blog</button> */}
              </div>
          ))}    
         </div>
